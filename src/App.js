@@ -10,6 +10,10 @@ function App(props) {
         <img src={logo} className="App-logo" alt="logo" />
         <h2>{props.header}</h2>
       </div>
+      <button type="submit" className="btn btn-primary" 
+          onClick={() => props.clickHandler('The paragraph has changed.')}>
+        Change Paragraph
+      </button>
       <p className="App-intro">
         {props.para}
       </p>
@@ -20,6 +24,7 @@ function App(props) {
 App.propTypes = {
   header: PropTypes.string,
   para: PropTypes.string,
+  clickHandler: PropTypes.func,
 };
 
 export default App;
