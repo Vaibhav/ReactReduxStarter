@@ -1,4 +1,4 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux'
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 import ReduxThunk from 'redux-thunk'
 
 const initialState = {}
@@ -16,7 +16,5 @@ export default createStore(
   combineReducers({
     app: AppReducer
   }),
-  applyMiddleware(
-    ReduxThunk
-  )
+  compose(applyMiddleware(ReduxThunk), window.devToolsExtension ? window.devToolsExtension() : f => f)
 )
